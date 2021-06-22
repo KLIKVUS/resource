@@ -7,8 +7,23 @@ body{
   padding: 0 15%;
   position: relative;
 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ .dark {
+  color: #fff;
+  background: #222;
+}
+
+header {
+  border-bottom: 2px solid #474747;
+  margin-bottom: 2rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #searchINP, #searchBTN {
@@ -41,7 +56,7 @@ footer {
 
   border: none;
   outline: none;
-  background-color: #33333325;
+  background-color: #91919191;
 
   z-index: 10;
   position: fixed;

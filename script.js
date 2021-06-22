@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = (e) => {
     // Все связаное с поиском
     const searchINP = document.getElementById('searchINP');
     const searchBTN = document.getElementById('searchBTN');
@@ -25,11 +25,13 @@ window.onload = () => {
 
     // Плавная прокрутка вверх
     const upBTN = document.getElementById("upBTN")
-    var t;
+    var t = null;
+    var scroll = Math.floor(document.body.offsetHeight / (window.outerHeight / 100));
+    console.log(scroll);
     function up() {
         var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
         if(top > 0) {
-            window.scrollBy(0, -1000);
+            window.scrollBy(0, -scroll);
             t = setTimeout(up, 20);
         } else clearTimeout(t);
         return false;
@@ -50,4 +52,17 @@ window.onload = () => {
             ) 
         }
     })
+
+
+    // Смена темы
+    document.getElementById("theme").addEventListener("click", () => {
+        if (localStorage.getItem("theme") != "dark") {
+            localStorage.setItem("theme", "dark");
+            document.body.classList.toggle("dark");
+        } else {
+            localStorage.removeItem("theme");
+            document.body.classList.toggle("dark");
+        }
+    })
+    localStorage.getItem("theme") == "dark" ? document.body.classList.toggle("dark") : null;
 }
