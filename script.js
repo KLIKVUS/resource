@@ -1,15 +1,17 @@
-window.onload = (e) => {
+window.onload = () => {
     // Все связаное с поиском
     const searchINP = document.getElementById('searchINP');
     const searchBTN = document.getElementById('searchBTN');
+    const list = document.querySelectorAll('li');
 
     const search = () => {
-        var value = searchINP.value.trim();
-        var list = document.querySelectorAll('li');
-        if (value !='') {
+        var value = searchINP.value.trim().toLowerCase();
+        if (value != '') {
             list.forEach(elem => {
-                if (elem.innerText.search(value)== -1) {
+                if (elem.innerText.toLowerCase().search(value) == -1) {
                     elem.classList.add('hide');
+                } else {
+                    elem.classList.remove('hide');
                 }
             });
         } else {
@@ -18,16 +20,23 @@ window.onload = (e) => {
             })
         }
     }
-
+    
     searchBTN.addEventListener('click', search);
     searchINP.addEventListener('search', search);
+    // searchINP.addEventListener('keydown', e => {
+    //     if (searchINP.value == "" && e.key == "Backspace") {
+    //         list.forEach(elem => {
+    //             elem.classList.remove('hide');
+    //         })
+    //     }
+    // })
 
 
     // Плавная прокрутка вверх
     const upBTN = document.getElementById("upBTN")
     var t = null;
     var scroll = Math.floor(document.body.offsetHeight / (window.outerHeight / 100));
-    console.log(scroll);
+
     function up() {
         var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
         if(top > 0) {

@@ -33,15 +33,17 @@ header {
   outline: none;
 }
 
-.hide {
-  display: none;
-}
+
   
 ul {
   padding: 0;
   padding-left: 2vw;
   line-height: 2;
   list-style-type: circle;
+}
+
+.hide {
+  display: none;
 }
 
 footer {
