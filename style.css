@@ -10,9 +10,9 @@ body{
   color: #333;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
- .dark {
+.dark {
   color: #fff;
   background: #222;
 }

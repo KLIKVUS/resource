@@ -23,13 +23,7 @@ window.onload = () => {
     
     searchBTN.addEventListener('click', search);
     searchINP.addEventListener('search', search);
-    // searchINP.addEventListener('keydown', e => {
-    //     if (searchINP.value == "" && e.key == "Backspace") {
-    //         list.forEach(elem => {
-    //             elem.classList.remove('hide');
-    //         })
-    //     }
-    // })
+    searchINP.addEventListener('input', (e) => {e.target.value == "" ? list.forEach(elem => {elem.classList.remove('hide');}) : null;});
 
 
     // Плавная прокрутка вверх
